@@ -41,22 +41,66 @@
     <link rel="stylesheet" type="text/css" href="css/index.css" />
     <title>Hello World</title>
 </head>
+<style>
+div#leftBoxesBox {
+    position: absolute;
+    left: 1px;
+	height:80px;
+	width:150px;
+}
 
+div#rightBoxesBox {
+    position: absolute;
+    left: 160px;
+	height:80px;
+	width:150px;
+}
+
+.stretch {
+    width:100%;
+    height:100%;
+}
+</style>
 <body>
-    <div class="app">
-        <h1>PhoneGap</h1>
-        <div id="deviceready" class="blink">
-            <p class="event listening">Connecting to Device</p>
-            <p class="event received">Device is Ready</p>
-        </div>
-        <h1>Sample App</h1>
-        <a href='squad.html'> Squad </a>
-    </div>
-    <script type="text/javascript" src="cordova.js"></script>
-    <script type="text/javascript" src="js/index.js"></script>
-    <script type="text/javascript">
-        app.initialize();
-    </script>
+
+<div id="leftBoxesBox">
+<a href="andro.html">
+<img border="0" src="AndroAVengers.png" class = "stretch">
+</a>
+</div>
+
+<div id="rightBoxesBox">
+<a href="cloud.html">
+<img border="0" src="Cloud Challengers.png" class = "stretch">
+</a>
+</p>
+</div>
+
+</br>
+</br>
+</br>
+</br>
+</br>
+
+
+<div id="leftBoxesBox">
+<a href="deccan.html">
+<img border="0" src="Deccan Dazzlers.png" class = "stretch" Top = "110">
+</a>
+</div>
+
+
+<div id="rightBoxesBox">
+<a href="solution.html">
+<img border="0" src="Solution SuperKings.png" class = "stretch" Top = "110">
+</a>
+</div>
+
+<script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+<script type="text/javascript">
+    app.initialize();
+</script>
 </body>
 
 </html>
