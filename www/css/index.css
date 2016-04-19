@@ -52,8 +52,8 @@ body {
     position:absolute;             /* position in the center of the screen */
     left:0%;
     top:2%;
-    height:400px;                   /* text area height */
-    //width:400px;                   /* text area width */
+    height:100%;                   /* text area height */
+    width:100%;                   /* text area width */
     text-align:center;
     /*padding:180px 0px 0px 0px;     /* image height is 200px (bottom 20px are overlapped with text) */
     margin:0px 0px 0px 0px;  /* offset vertical: half of image height and text area height */
@@ -115,3 +115,61 @@ h1 {
     animation:fade 3000ms infinite;
     -webkit-animation:fade 3000ms infinite;
 }
+
+		.stretch {
+			width:100%;
+			height:100%;
+		}
+
+		div#menu {
+
+			height:20px;
+			background-color : #E91E63;
+			display: block;
+			text-align: center;
+			float : left;
+			left : 1px;
+			top : 1px;
+			width : 100%;
+		}
+
+		ul {
+			list-style-type: none;
+			margin: 0;
+			padding: 0;
+			overflow: hidden;
+			background-color: #4CAF50;
+			text-align: center;
+			float : left;
+			left : 1px;
+			width : 100%;
+		}
+
+		li {
+			
+			border-right: 1px solid #bbb;
+			text-align: center;
+			font-weight: bold;
+			float : left;
+			left : 1px;
+		}
+
+		li a {
+			display: block;
+			color: white;
+			text-align: center;
+			padding: 14px 16px;
+			text-decoration: none;
+		}
+
+		li a:hover {
+			background-color: #388E3C;
+		}
+
+		.active {
+			background-color: #4CAF50;
+		}
+
+		li:last-child {
+			border-right: none;
+		}
