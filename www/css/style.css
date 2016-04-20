@@ -133,7 +133,7 @@ ul.nav.navbar-nav li a.active {
 /*-- //banner --*/
 /*-- banner-bottom --*/
 .banner-bottom,.team,.news,.typo,.services,.mail,.blog,.single{
-	padding:5em 0;
+	/*padding:5em 0;*/
 }
 /*--flexisel--*/
 .flex-slider{	
@@ -530,18 +530,18 @@ figure.effect-lexi:hover p {
 	font-size:1.7em;
 	color:#fff;
 	font-weight:400;
-	margin:0 0 2em;
-	padding:1em 0 0;
+	/*margin:0 0 2em;*/
+	/*padding:1em 0 0;*/
 }
 .footer-grid-left ul li{
 	background: url(../images/2.png) no-repeat 0px 0px;
     display: block;
-    padding-left: 4em;
-    font-size: .8em;
+    /*padding-left: 4em;*/
+    font-size: 1em;
     color: #fff;
     text-transform: uppercase;
     line-height: 1.8em;
-	margin-bottom:1em;
+	/*margin-bottom:1em;*/
 }
 .footer-grid-left ul li a{
 	color:#fff;
@@ -621,7 +621,7 @@ figure.effect-lexi:hover p {
 .footer-bottom-left p{
 	color:#fff;
 	font-size:.9em;
-	margin:0.5em 0 0;
+	/*margin:0.5em 0 0*/
 	text-transform:uppercase;
 }
 .footer-bottom-left p a{
@@ -1028,6 +1028,7 @@ li.list-group-item1 {
 	padding:2em 0;
 }
 .grid_5 h3, .grid_5 h2, .grid_5 h1, .grid_5 h4, .grid_5 h5, h3.hdg, h3.bars {
+	top : 10px;
 	margin-bottom: 1em;
     color:#02A0C3;
 }
