@@ -7,7 +7,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE html>
 <html>
 <head>
-<title>APL-2016</title>
+<title>APL=2016 Match fixtures</title>
 <!-- for-mobile-apps -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -21,6 +21,27 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link href="css/index.css" rel="stylesheet" type="text/css" media="all" />
 <!-- js -->
 <script src="js/jquery-1.11.1.min.js"></script>
+<script
+src="http://maps.googleapis.com/maps/api/js">
+</script>
+
+<script>
+function initialize() {
+  var myLatLng = {lat: 12.87820, lng: 77.72393};
+  var mapProp = {
+    center:new google.maps.LatLng(12.87820,77.72393),
+    zoom:15,
+    mapTypeId:google.maps.MapTypeId.ROADMAP
+  };
+  var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+  var marker = new google.maps.Marker({
+    position: myLatLng,
+    map: map,
+    title: 'APL-2016'
+  });
+}
+google.maps.event.addDomListener(window, 'load', initialize);
+</script>
 <!-- //js -->
 <link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
 <link href='//fonts.googleapis.com/css?family=Abril+Fatface' rel='stylesheet' type='text/css'>
@@ -66,85 +87,27 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</br>
 			<div class="banner-info">
 				<h1>Agile Primier League - 2016<span>Sports Event</span></h1>
-				<p>The most tough team competion</p>
+				<p>The most tough teams competion</p>
 			</div>
 		</div>
 	</div>
 <!-- //bannner -->
-<!-- banner-bottom -->
-	<div class="banner-bottom">
-		<div class="container">
-			<h2>Four teams , One dream , One winner & One cup</h2>
-			<div class="banner-bottom-info">
-				<ul id="flexiselDemo1">	
-					<li>
-						<div class="item">
-							<div class="item1">
-								<a href="index.html"><i class="glyphicon glyphicon-home" aria-hidden="true"></i>
-								<h3>Home</h3> </a>
-								<p>APL-2016 - This is the Home page of APL-2016 season - I<p>
-							</div>
-						</div>
-					</li>
-					<li>
-						<div class="item">
-							<div class="item1">
-								<a href="fixture.html"><i class="glyphicon glyphicon-lock" aria-hidden="true"></i>
-								<h3>Fixtures</h3></a>
-								<p>It has match fixture details about APL- 2016 season - I</p>
-							</div>
-						</div>
-					</li>
-					<li>
-						<div class="item">
-							<div class="item1">
-								<a href="about.html"><i class="glyphicon glyphicon-user" aria-hidden="true"></i>
-								<h3>About</h3></a>
-								<p>Do you wan to know more about APL-2016 Event , then click here.</p>
-							</div>
-						</div>
-					</li>
-					<li>
-						<div class="item">
-							<div class="item1">
-								<a href="gallery.html"><i class="glyphicon glyphicon-camera" aria-hidden="true"></i>
-								<h3>Gallery</h3></a>
-								<p>It has Gallery of APL-2016 , Collective gallery of APL-2016 season - I is available</p>
-							</div>
-						</div>
-					</li>
-				</ul>
-					<script type="text/javascript">
-						$(window).load(function() {
-						$("#flexiselDemo1").flexisel({
-							visibleItems: 4,
-							animationSpeed: 1000,
-							autoPlay: true,
-							autoPlaySpeed: 3000,    		
-							pauseOnHover: true,
-							enableResponsiveBreakpoints: true,
-							responsiveBreakpoints: { 
-								portrait: { 
-									changePoint:480,
-									visibleItems: 1
-								}, 
-								landscape: { 
-									changePoint:640,
-									visibleItems: 2
-								},
-								tablet: { 
-									changePoint:768,
-									visibleItems: 3
-								}
-							}
-						});
-						
-					 });
-					</script>
-					<script type="text/javascript" src="js/jquery.flexisel.js"></script>
-		</div>	</div>
-</div>	
-</div>		
+<!-- footer -->
+                </br>
+				<h3 class="hdg">Google Map</h3>
+				<div class="bs-example">
+							<h6> 
+							<h5>Address : </h5> MS Ground ,
+							</br>
+							Sulikunte village Chokkasndra Rd, 
+							</br>
+							Kodathi Near , DPS East.
+							</h6>
+							
+				</div>
+		<div id="googleMap"></div>	
+	</div>
+<!-- //footer -->
 <!-- for bootstrap working -->
 	<script src="js/bootstrap.js"></script>
 <!-- //for bootstrap working -->
