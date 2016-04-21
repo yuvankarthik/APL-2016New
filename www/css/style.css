@@ -676,7 +676,7 @@ figure.effect-lexi:hover p {
     height: 0;
     left: 50%;
     margin: 0;
-    position: absolute;
+    position: ;
     top: 50%;
     -webkit-transition: all 0.3s;
     -moz-transition: all 0.3s;
@@ -1164,7 +1164,7 @@ h2.typoh2{
 }
 @media (max-width:480px){
 	.banner {
-		min-height: 405px;
+		min-height: 50%;
 	}
 	.table h1 {
 		font-size: 26px;
@@ -1810,7 +1810,7 @@ p.admin{
 /*-----start-responsive-design------*/
 @media (max-width:1366px){
 	.banner {
-		min-height: 750px;
+		min-height: 50%;
 	}
 }
 @media (max-width:1280px){
@@ -1826,7 +1826,7 @@ p.admin{
 		padding: 10px 40px;
 	}
 	.banner {
-		min-height: 685px;
+		min-height: 50%;
 	}
 	.banner-bottom, .team, .news, .typo, .services, .mail, .blog, .single,.testimonials {
 		padding: 4em 0;
@@ -1929,7 +1929,7 @@ p.admin{
 		font-size: 2em;
 	}
 	.banner {
-		min-height: 640px;
+		min-height: 50%;
 	}
 	.banner-bottom h2 {
 		font-size: 1em;
@@ -2051,7 +2051,7 @@ p.admin{
 		margin: 8em 0 0;
 	}
 	.banner {
-		min-height: 520px;
+		min-height: 50%;
 	}
 	.banner-bottom h2 {
 		width: 65%;
@@ -2137,7 +2137,7 @@ p.admin{
 		margin: .5em 0 0.5em 17.5em;
 	}
 	.banner {
-		min-height: 480px;
+		min-height: 50%;
 		background: url(../images/banner.jpg) no-repeat -100px 0px;
 		background-size: cover;
 		-webkit-background-size: cover;
@@ -2304,7 +2304,7 @@ p.admin{
 		padding: 1em 0 0;
 	}
 	.banner {
-		min-height: 395px;
+		min-height: 50%;
 	}
 	.banner-bottom h2 {
 		width: 85%;
@@ -2595,7 +2595,7 @@ p.admin{
 		margin: 4em 0 0;
 	}
 	.banner {
-		min-height: 325px;
+		min-height: 50%;
 	}
 	.item p,.banner-bottom-grid-right p,.services-grid-left1 ul li a,.testimonials-grid-pos-right p,.news-grid p,p.dolore,.banner-bottom1-left1 p,.footer-grid-left p,.news-grid h4{
 		font-size: 13px;
