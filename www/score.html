@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+    <head>
+		<title>APL-2016 Live Score</title>
+		<!-- for-mobile-apps -->
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="keywords" content="Inventor Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+		Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+		<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+			function hideURLbar(){ window.scrollTo(0,1); } </script>
+		<!-- //for-mobile-apps -->
+		<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+		<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+		<link href="css/index.css" rel="stylesheet" type="text/css" media="all" />
+		<!-- js -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		<script src="jquery-1.7.2.min.js"></script>
+		<script type="text/javascript">
+        $(document).ready(function () {
+               
+                    jQuery.support.cors = true;
+					//signed.applets.codebase_principal_support = true;
+					
+					$("#ResultArea").html("");
+
+					//Crate table html tag
+					var table = $("<table id=scoreBoard border=1></table>").appendTo("#ResultArea");
+
+					//Create table header row
+					var rowHeader = $("<tr></tr>").appendTo(table);
+					$("<td id=trheader></td>").text("Score Board").appendTo(rowHeader);
+					
+					$.ajax({
+					    accepts: {mycustomtype: 'application/x-some-custom-type'},
+						type: "GET",
+						crossDomain: true,
+						dataType: 'json',
+						contentType: "application/json",
+						async: false,
+						url: "http://192.168.2.254/asbrest/ASBMenuRest.dll/datasnap/rest/TASBMenuREST/getscoreapi",
+						jsonpCallback: "MyCallbackDED",
+                        processData: false,
+						
+						
+						success: function (data) {  
+							//alert(JSON.stringify(data));	
+							$.each(data.result[0].apl, function (i, value) {
+							//Create new row for each record
+							var row = $("<tr></tr>").appendTo(table);
+							if ((value.result == "false") | (value.result == ""))
+							{
+								$("<td></td>").text("There are no live matches.").appendTo(row);
+							}
+							else
+							{
+								$("<td id=tdmatch></td>").text(value.bat+" Vs "+value.bowl).appendTo(row);
+								var row = $("<tr></tr>").appendTo(table);
+								$("<td id=tdscore></td>").text(value.bat+" - "+value.score+" / "+value.wicket +"  ("+value.over+")").appendTo(row);
+								var row = $("<tr></tr>").appendTo(table);
+								$("<td></td>").text(value.batsman1+"  "+value.batsman1run).appendTo(row);
+								var row = $("<tr></tr>").appendTo(table);
+								$("<td></td>").text(value.batsman2+"  "+value.batsman2run).appendTo(row);
+								var row = $("<tr></tr>").appendTo(table);
+								var row = $("<tr></tr>").appendTo(table);
+								$("<td></td>").text(value.bowler+"  "+value.over2+" - "+value.run2+" - "+value.wicket2).appendTo(row);
+							}
+						});			
+
+						},
+						error:function (xhr, ajaxOptions, thrownError){  
+						    var row = $("<tr></tr>").appendTo(table);						
+							$("<td></td>").text("There are no live matches.").appendTo(row);
+							//alert(xhr.status);               
+							//alert(thrownError);       
+						} 
+					});
+				
+
+        });
+		
+		$(document).ajaxError(function(e, jqxhr, settings, exception) {  
+			if (jqxhr.readyState == 0 || jqxhr.status == 0) {  
+			return; //Skip this error  
+		}  
+		}); 
+      </script>
+	  <style>
+	    #refreshgImg{
+			height : 45px;
+			width : 80px;
+		}
+		#scoreBoard {
+		font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+		width: 100%;
+		text-align : center;
+		align : center;
+		}
+
+		#scoreBoard td, #scoreBoard th {
+			border: 0px solid #ddd;
+			text-align: left;
+			text-align : center;
+		}
+
+		#scoreBoard tr:nth-child(even){background-color: #f2f2f2;}
+
+		#scoreBoard tr:hover {background-color: #ddd;}
+
+		#scoreBoard th {
+			padding-top: 12px;
+			padding-bottom: 12px;
+			color: white;
+		}
+		
+        #trheader{
+		    font-weight : bold;
+			font-size : 200%;
+		}
+		#tdmatch{
+		    font-weight : bold;
+			font-size : 150%;
+		}
+		#tdscore{
+		    font-weight : bold;
+			font-size : 100%;
+		}
+	</style>
+<!-- //js -->
+<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+<link href='//fonts.googleapis.com/css?family=Abril+Fatface' rel='stylesheet' type='text/css'>
+    </head>
+
+    <body>
+	<div class="app">
+<!-- bannner -->
+	<div class="banner">
+		<div class="container">
+			<div class="logo">
+				<a href="index.html">APL-2016 <span>The big sports event</span></a>
+			</div>
+			<div class="navigation">
+				<nav class="navbar navbar-default">
+				<!-- Brand and toggle get grouped for better mobile display -->
+					<div class="navbar-header">
+					  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					  </button>
+					</div>
+
+					<!-- Collect the nav links, forms, and other content for toggling -->
+					<div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
+						<nav class="cl-effect-13" id="cl-effect-13">
+							<ul class="nav navbar-nav">
+								<li><a href="index.html">Home</a></li>
+								<li><a href="teams.html"  >Teams</a></li>
+								<li><a href="fixture.html">Fixtures</a></li>
+								<li><a href="score.html" class="active">Live Score</a></li>
+								<li><a href="gallery.html">Gallery</a></li>
+								<li><a href="map.html">Map</a></li>
+								<li><a href="about.html">About</a></li>
+							</ul>
+						</nav>
+					</div>
+					<!-- /.navbar-collapse -->
+				</nav>
+			</div>
+			</br>
+			</br>
+			</br>
+			<div class="banner-info">
+				<h1>Agile Primier League - 2016<span>Sports Event</span></h1>
+				<p>The most tough teams competion</p>
+			</div>
+		</div>
+	</div>
+	
+	
+	
+	
+	   <h3 class="hdg">Live Score</h3>
+	   <img src="images/refresh.png" id="refreshgImg" onclick="RefreshScore()"/>			     
+	   <div id="ResultArea">
+
+	   </div>    
+    </div>	   
+    </body>
+</html>

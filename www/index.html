@@ -20,45 +20,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
 <link href="css/index.css" rel="stylesheet" type="text/css" media="all" />
 <!-- js -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-		<script src="jquery-1.7.2.min.js"></script>
-		<script type="text/javascript">
-        $(document).ready(function () {
-               
-                    jQuery.support.cors = true;
-					//signed.applets.codebase_principal_support = true;
-					
-					$.ajax({
-					    accepts: {mycustomtype: 'application/x-some-custom-type'},
-						type: "GET",
-						crossDomain: true,
-						dataType: 'json',
-						contentType: "application/json",
-						async: false,
-						url: "http://192.168.2.254/asbrest/ASBMenuRest.dll/datasnap/rest/TASBMenuREST/getscoreapi",
-						jsonpCallback: "MyCallbackDED",
-                        processData: false,
-						
-						
-						success: function (data) {  
-							alert(JSON.stringify(data));				
-
-						},
-						error:function (xhr, ajaxOptions, thrownError){  
-							alert(xhr.status);               
-							alert(thrownError);       
-						} 
-					});
-				
-
-        });
-		
-		$(document).ajaxError(function(e, jqxhr, settings, exception) {  
-			if (jqxhr.readyState == 0 || jqxhr.status == 0) {  
-			return; //Skip this error  
-		}  
-		}); 
-      </script>
+        
 <script src="js/jquery-1.11.1.min.js"></script>
 <!-- //js -->
 <link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
@@ -92,6 +54,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<li><a href="index.html" class="active">Home</a></li>
 								<li><a href="teams.html"  >Teams</a></li>
 								<li><a href="fixture.html">Fixtures</a></li>
+								<li><a href="score.html">Live Score</a></li>
 								<li><a href="gallery.html">Gallery</a></li>
 								<li><a href="map.html">Map</a></li>
 								<li><a href="about.html">About</a></li>
