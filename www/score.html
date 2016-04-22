@@ -55,41 +55,82 @@
 							$.each(data.result[0].apl, function (i, value) {
 							//Create new row for each record
 							var row = $("<tr></tr>").appendTo(table);
-							if ((value.result == "false") | (value.result == ""))
+							if (value.result == "true")
 							{
-								$("<td></td>").text("There are no live matches.").appendTo(row);
-							}
-							else
-							{
-								$("<td id=tdmatch></td>").text(value.bat+" Vs "+value.bowl).appendTo(row);
+							    $("<td id=tdmatch></td>").text(value.bat+" Vs "+value.bowl).appendTo(row);
 								var row = $("<tr></tr>").appendTo(table);
 								$("<td id=tdscore></td>").text(value.bat+" - "+value.teamascore+" / "+value.teamawickets +"  ("+value.teamaovers+")").appendTo(row);
 								var row = $("<tr></tr>").appendTo(table);
-								$("<td></td>").text(value.batsman1+"  "+value.batsman1run).appendTo(row);
-								var row = $("<tr></tr>").appendTo(table);
-								$("<td></td>").text(value.batsman2+"  "+value.batsman2run).appendTo(row);
-								var row = $("<tr></tr>").appendTo(table);
-								var row = $("<tr></tr>").appendTo(table);
-								$("<td></td>").text(value.bowler+"  "+value.over2+" - "+value.run2+" - "+value.wicket2).appendTo(row);
-								
-								if ((value.matchname1 == "undefined") | (value.result == ""))
-							    {
-								
-							    }
-								else								
+								if (value.batsman1 != undefined) 
 								{
-								var row = $("<tr></tr>").appendTo(table);
-								var row = $("<tr></tr>").appendTo(table);
-								$("<td id=tdresult></td>").text("Results").appendTo(row);
-								var row = $("<tr></tr>").appendTo(table);
-								$("<td id=tdscore></td>").text(value.teama1+" Vs "+value.teamb1).appendTo(row);
-								var row = $("<tr></tr>").appendTo(table);
-								$("<td></td>").text("Winner Is "+value.winner1).appendTo(row);
-								var row = $("<tr></tr>").appendTo(table);
-								$("<td></td>").text(value.Status1).appendTo(row);
+								$("<td></td>").text(value.batsman1+"  "+value.batsman1run).appendTo(row);
 								}
-								
-							}							
+								var row = $("<tr></tr>").appendTo(table);
+								if (value.batsman2 != undefined) 
+								{
+								$("<td></td>").text(value.batsman2+"  "+value.batsman2run).appendTo(row);
+								}
+								var row = $("<tr></tr>").appendTo(table);
+								var row = $("<tr></tr>").appendTo(table);
+								if (value.bowler != undefined) 
+								{
+								$("<td></td>").text(value.bowler+"  "+value.over2+" - "+value.run2+" - "+value.wicket2).appendTo(row);
+								}
+							}
+							else
+							{
+
+							$("<td></td>").text("There are no live matches.").appendTo(row);
+							}
+
+							if ((value.matchname1 == undefined) | (value.teama1 == undefined))
+							{
+							
+							}
+							else								
+							{
+							var row = $("<tr></tr>").appendTo(table);
+							var row = $("<tr></tr>").appendTo(table);
+							$("<td id=tdresult></td>").text("Results").appendTo(row);
+							var row = $("<tr></tr>").appendTo(table);
+							$("<td id=tdscore></td>").text(value.teama1+" Vs "+value.teamb1).appendTo(row);
+							var row = $("<tr></tr>").appendTo(table);
+							$("<td></td>").text("Winner Is "+value.winner1).appendTo(row);
+							var row = $("<tr></tr>").appendTo(table);
+							$("<td></td>").text(value.Status1).appendTo(row);
+							}
+							
+							if ((value.matchname2 == undefined) | (value.teama2 == undefined))
+							{
+							
+							}
+							else								
+							{
+							var row = $("<tr></tr>").appendTo(table);
+							var row = $("<tr></tr>").appendTo(table);
+							var row = $("<tr></tr>").appendTo(table);
+							$("<td id=tdscore></td>").text(value.teama2+" Vs "+value.teamb2).appendTo(row);
+							var row = $("<tr></tr>").appendTo(table);
+							$("<td></td>").text("Winner Is "+value.winner2).appendTo(row);
+							var row = $("<tr></tr>").appendTo(table);
+							$("<td></td>").text(value.Status2).appendTo(row);
+							}
+							
+							if ((value.matchname3 == undefined) | (value.teama3 == undefined))
+							{
+							
+							}
+							else								
+							{
+							var row = $("<tr></tr>").appendTo(table);
+							var row = $("<tr></tr>").appendTo(table);
+							var row = $("<tr></tr>").appendTo(table);
+							$("<td id=tdscore></td>").text(value.teama3+" Vs "+value.teamb3).appendTo(row);
+							var row = $("<tr></tr>").appendTo(table);
+							$("<td></td>").text("Winner Is "+value.winner3).appendTo(row);
+							var row = $("<tr></tr>").appendTo(table);
+							$("<td></td>").text(value.Status3).appendTo(row);
+							}						
 							
 						});			
 
