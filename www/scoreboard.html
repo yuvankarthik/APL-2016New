@@ -1,43 +1,54 @@
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
 <!DOCTYPE html>
 <html>
-    <head>
-		<title>APL-2016 Live Score</title>
-		<!-- for-mobile-apps -->
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<meta name="keywords" content="Inventor Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
-		Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
-		<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
-			function hideURLbar(){ window.scrollTo(0,1); } </script>
-		<!-- //for-mobile-apps -->
-		<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
-		<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
-		<link href="css/index.css" rel="stylesheet" type="text/css" media="all" />
-		<!-- js -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-		<script src="jquery-1.7.2.min.js"></script>
-		<!-- js -->
-		<script src="js/jquery-1.11.1.min.js"></script>
-		<!-- //js -->
-		<script type="text/javascript"> //type="application/x-javascript"
-		
-		
-		addEventListener("load", function() { setTimeout(RefreshScore, 0); }, false);
-		
-				
-				function RefreshScore(){
-                    jQuery.support.cors = true;
+<head>
+<title>APL=2016 Match fixtures</title>
+<!-- for-mobile-apps -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Inventor Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+		function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- //for-mobile-apps -->
+<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+<link href="css/index.css" rel="stylesheet" type="text/css" media="all" />
+<!-- js -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="js/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="jquery-1.7.2.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            RefreshScore();
+            //assign button click event to call function to create html table dynamically
+            $("#btnRefresh").click(function () {
+			    
+                RefreshScore();
+            });
+        }
+        );
+
+        function RefreshScore() {
+            alert('test');
+            //Clear result div
+            $("#ResultArea").html("");
+
+            //Crate table html tag
+            var table = $("<table id=scoreBoard border=1></table>").appendTo("#ResultArea");
+
+            //Create table header row
+            var rowHeader = $("<tr></tr>").appendTo(table);
+            $("<td id=trheader></td>").text("Score Board").appendTo(rowHeader);
+	
+			jQuery.support.cors = true;
 					//signed.applets.codebase_principal_support = true;
-					
-					$("#ResultArea").html("");
-
-					//Crate table html tag
-					var table = $("<table id=scoreBoard border=1></table>").appendTo("#ResultArea");
-
-					//Create table header row
-					var rowHeader = $("<tr></tr>").appendTo(table);
-					$("<td id=trheader></td>").text("Score Board").appendTo(rowHeader);
-					
+			alert('ajax');		
 					$.ajax({
 					    accepts: {mycustomtype: 'application/x-some-custom-type'},
 						type: "GET",
@@ -47,15 +58,14 @@
 						async: false,
 						url: "http://192.168.2.254/asbrest/ASBMenuRest.dll/datasnap/rest/TASBMenuREST/getscoreapi",
 						jsonpCallback: "MyCallbackDED",
-                        processData: false,
-						
-						
+                        processData: false,																	
+						alert('ajax resp');
 						success: function (data) {  
-							//alert(JSON.stringify(data));	
-							$.each(data.result[0].apl, function (i, value) {
+						    alert(JSON.stringify(data));	
+							$.each(data.apl, function (i, value) {
 							//Create new row for each record
 							var row = $("<tr></tr>").appendTo(table);
-							if ((value.result == "false") | (value.result == ""))
+							if ((value.bat == "") | (value.bowl == ""))
 							{
 								$("<td></td>").text("There are no live matches.").appendTo(row);
 							}
@@ -63,7 +73,7 @@
 							{
 								$("<td id=tdmatch></td>").text(value.bat+" Vs "+value.bowl).appendTo(row);
 								var row = $("<tr></tr>").appendTo(table);
-								$("<td id=tdscore></td>").text(value.bat+" - "+value.teamascore+" / "+value.teamawickets +"  ("+value.teamaovers+")").appendTo(row);
+								$("<td id=tdscore></td>").text(value.bat+" - "+value.score+" / "+value.wicket +"  ("+value.over+")").appendTo(row);
 								var row = $("<tr></tr>").appendTo(table);
 								$("<td></td>").text(value.batsman1+"  "+value.batsman1run).appendTo(row);
 								var row = $("<tr></tr>").appendTo(table);
@@ -71,49 +81,35 @@
 								var row = $("<tr></tr>").appendTo(table);
 								var row = $("<tr></tr>").appendTo(table);
 								$("<td></td>").text(value.bowler+"  "+value.over2+" - "+value.run2+" - "+value.wicket2).appendTo(row);
-								
-								if ((value.matchname1 == "undefined") | (value.result == ""))
-							    {
-								
-							    }
-								else								
-								{
-								var row = $("<tr></tr>").appendTo(table);
-								var row = $("<tr></tr>").appendTo(table);
-								$("<td id=tdresult></td>").text("Results").appendTo(row);
-								var row = $("<tr></tr>").appendTo(table);
-								$("<td id=tdscore></td>").text(value.teama1+" Vs "+value.teamb1).appendTo(row);
-								var row = $("<tr></tr>").appendTo(table);
-								$("<td></td>").text("Winner Is "+value.winner1).appendTo(row);
-								var row = $("<tr></tr>").appendTo(table);
-								$("<td></td>").text(value.Status1).appendTo(row);
-								}
-								
-							}							
-							
-						});			
+							}
+						});				
 
 						},
 						error:function (xhr, ajaxOptions, thrownError){  
-						    var row = $("<tr></tr>").appendTo(table);						
-							$("<td></td>").text("There are no live matches.").appendTo(row);
-							//alert(xhr.status);               
-							//alert(thrownError);       
+							alert(xhr.status);               
+							alert(thrownError); 
+							var row = $("<tr></tr>").appendTo(table);						
+							$("<td></td>").text("There are no live matches.").appendTo(row);      
 						} 
 					});
-					}
-					
+			
+		
+        }
 		
 		$(document).ajaxError(function(e, jqxhr, settings, exception) {  
 			if (jqxhr.readyState == 0 || jqxhr.status == 0) {  
 			return; //Skip this error  
 		}  
 		}); 
-      </script>
-	  <style>
+
+    </script>
+	<style>
 	    #refreshgImg{
-			height : 45px;
-			width : 80px;
+			height : 20%;
+			width : 25%;
+			align : center;
+			max-width : 40%;
+			max-height : 30%;
 		}
 		#scoreBoard {
 		font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
@@ -148,23 +144,16 @@
 		}
 		#tdscore{
 		    font-weight : bold;
-			font-size : 100%;
+			font-size : 10%;
 		}
-		#tdresult{
-		    font-weight : bold;
-			font-size : 150%;
-			color : #0288d1;
-			font-family: 'Comic Sans MS', cursive;
-		}
-		
 	</style>
 <!-- //js -->
-<!--link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
-<link href='//fonts.googleapis.com/css?family=Abril+Fatface' rel='stylesheet' type='text/css'-->
-    </head>
-
-    <body>
-	<div class="app">
+<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+<link href='//fonts.googleapis.com/css?family=Abril+Fatface' rel='stylesheet' type='text/css'>
+</head>
+	
+<body>
+<div class="app">
 <!-- bannner -->
 	<div class="banner">
 		<div class="container">
@@ -190,9 +179,8 @@
 								<li><a href="index.html">Home</a></li>
 								<li><a href="teams.html"  >Teams</a></li>
 								<li><a href="fixture.html">Fixtures</a></li>
-								<li><a href="score.html" class="active">Live Score</a></li>
 								<li><a href="gallery.html">Gallery</a></li>
-								<li><a href="map.html">Map</a></li>
+								<li><a href="map.html" class="active">Map</a></li>
 								<li><a href="about.html">About</a></li>
 							</ul>
 						</nav>
@@ -209,13 +197,22 @@
 			</div>
 		</div>
 	</div>
-		
-	   <h3 class="hdg">Live Score</h3>
-	   <img src="images/refresh.png" id="refreshgImg" onclick="RefreshScore()"/>			     
-	   <div id="ResultArea">
+<!-- //bannner -->
+<!-- footer -->
+                </br>			
+				<h3 class="hdg">Live Score</h3>
+                       <input type="button" id="btnRefresh" value="Refresh" />
+					   <img src="images/index.jpeg" id="btnRefresh" id="refreshgImg" onclick="RefreshScore()"/>			     
 
-	   </div>    
-    </div>	
+
+						   <div id="ResultArea">
+
+						   </div>          						
+
+
+
+	</div>
+<!-- //footer -->
 <!-- for bootstrap working -->
 	<script src="js/bootstrap.js"></script>
 <!-- //for bootstrap working -->
@@ -223,6 +220,8 @@
 <script type="text/javascript" src="js/index.js"></script>
 <script type="text/javascript">
     app.initialize();
-</script>	
-    </body>
+</script>
+</body>
 </html>
+
+
